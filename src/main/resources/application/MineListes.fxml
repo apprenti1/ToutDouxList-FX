@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F2F5FC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ScrollPane fx:id="principalPanel" layoutY="60.0" prefHeight="340.0" prefWidth="600.0" style="-fx-background-color: transparent;">
+         <content>
+            <AnchorPane prefHeight="120.0" prefWidth="585.0">
+               <children>
+                  <GridPane fx:id="tab" alignment="CENTER" layoutX="43.0" layoutY="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="125.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="125.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="125.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="125.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="125.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children></AnchorPane>
+         </content>
+      </ScrollPane>
+      <Pane layoutY="350.0" prefHeight="50.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="add" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="5.0" onAction="#add" prefHeight="40.0" prefWidth="40.0" style="-fx-border-color: #4154F1; -fx-padding: -30; -fx-border-width: 20; -fx-border-radius: 50%; -fx-background-color: transparent;" text="➕" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #fff;">
+         <effect>
+            <DropShadow color="#0129701a" radius="5" spread="0.5" />
+         </effect>
+         <children>
+            <Button layoutX="497.0" layoutY="10.0" onAction="#switchConnexion" prefHeight="40.0" prefWidth="89.0" style="-fx-background-color: #4154F1;" text="Se déco..." textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="15.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="14.0" layoutY="16.0" onMouseClicked="#switchAccueil" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="43.0" onMouseClicked="#switchAccueil" prefHeight="60.0" prefWidth="144.0" text="ToutDouxList" textFill="#012970">
+               <font>
+                  <Font name="Calibri Bold" size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="editProfil" layoutX="386.0" onAction="#switchEditProfil" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: #0000;" text="Mon Profil" textFill="#0e3c8f">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="mineListes" layoutX="288.0" onAction="#switchMineListes" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: #0000;" text="Mes Listes" textFill="#0e3c8f">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="mineTypes" layoutX="190.0" onAction="#switchMineTypes" prefHeight="60.0" prefWidth="98.0" style="-fx-background-color: #0000;" text="Mes types" textFill="#0e3c8f">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+   
+</Pane>
