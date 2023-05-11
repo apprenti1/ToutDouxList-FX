@@ -35,6 +35,8 @@ public class MineListes {
     @FXML private GridPane tab;
     private ArrayList<Node> listes;
 
+
+
     public MineListes(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
         this.listes = new ArrayList<Node>();
@@ -84,7 +86,6 @@ public class MineListes {
                     ((i*4+2<this.listes.size())?this.listes.get(i*4+2):new Label("")),
                     ((i*4+3<this.listes.size())?this.listes.get(i*4+3):new Label("")));
         }
-        //tab.addRow(1, );
         System.out.println(tab.getRowCount());
 
     }
@@ -94,6 +95,5 @@ public class MineListes {
     @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
     @FXML void switchEditProfil(ActionEvent event) {Main.changeScene("EditProfil", new EditProfil(this.utilisateur, true), "Modifions nôtre profil !!");}
     @FXML void switchMineListes(ActionEvent event) {Main.changeScene("MineListes", new MineListes(this.utilisateur), "D'ici vous pouvez accéder à toutes vos listes ;)");}
-    @FXML void switchMineTypes(ActionEvent event) {}
-    //todo switchMinetype
+    @FXML void switchMineTypes(ActionEvent event) {Main.changeScene("MineTypes", new MineTypes(this.utilisateur), "Modifiez vos différents types de listes ;)");}
 }

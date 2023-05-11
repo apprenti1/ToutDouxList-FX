@@ -17,7 +17,6 @@ import model.utilisateur.Utilisateur;
 
 public class ViewListe {
 
-
     @FXML private Pane colorType;
     @FXML private Button connexion;
     @FXML private Text description;
@@ -34,6 +33,8 @@ public class ViewListe {
     private Liste liste;
     private Utilisateur utilisateur;
 
+
+
     public ViewListe(Liste liste, Utilisateur utilisateur) {
         this.liste = liste;
         this.utilisateur = utilisateur;
@@ -44,33 +45,6 @@ public class ViewListe {
         this.valid.setCellValueFactory(new PropertyValueFactory<Tache, CheckBox>("checkbox_est_realise"));
         this.nom.setCellValueFactory(new PropertyValueFactory<Tache, String>("nom"));
         this.table.setItems(FXCollections.observableList(this.liste.getTaches()));
-    }
-    @FXML void switchAccueil(MouseEvent event) {Main.changeScene("Accueil", new Accueil(this.utilisateur), "Bienvenue dans ToutDouxList-FX");}
-    @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
-    @FXML void switchEditProfil(ActionEvent event) {Main.changeScene("EditProfil", new EditProfil(this.utilisateur, true), "Modifions nôtre profil !!");}
-    @FXML void switchMineListes(ActionEvent event) {Main.changeScene("MineListes", new MineListes(this.utilisateur), "D'ici vous pouvez accéder à toutes vos listes ;)");}
-    @FXML void switchMineTypes(ActionEvent event) {}
-    @FXML void delete(ActionEvent event) {
-        if (this.listeInfo.isVisible()){
-            for (Tache item:this.table.getSelectionModel().getSelectedItems()) {
-                TacheController.deleteTache(item);
-                this.table.getItems().remove(item);
-            }
-            this.table.refresh();
-            //Main.changeScene("ViewListe", new ViewListe(this.liste, this.utilisateur), "Vôtre liste est avancée :)");
-        } else {
-            ListeController.deleteListe(this.liste, this.utilisateur);
-            utilisateur.getListes().remove(this.liste);
-            Main.changeScene("MineListes", new MineListes(this.utilisateur), "D'ici vous pouvez accéder à toutes vos listes ;)");
-        }
-    }
-    //todo ajouter les redirrections dans les boutons
-    @FXML void edit(ActionEvent event) {
-        if (this.listeInfo.isVisible()){
-            Main.changeScene("EditTache", new EditTache(this.utilisateur, this.liste, this.table.getSelectionModel().getSelectedItem()), "Modifie ta tâche :)");
-        } else {
-            Main.changeScene("EditListe", new  EditListe(utilisateur, liste), "Modifie ta liste :)");
-        }
     }
     @FXML void showListInfo(ActionEvent event) {
         this.titre.setText(this.liste.getNom());
@@ -93,7 +67,32 @@ public class ViewListe {
             this.table.refresh();
         }
     }
-    @FXML void switchAddTache(ActionEvent event) {
-        Main.changeScene("EditTache", new EditTache(this.utilisateur, this.liste), "Créez vôtre tâche :)");
+    @FXML void delete(ActionEvent event) {
+        if (this.listeInfo.isVisible()){
+            for (Tache item:this.table.getSelectionModel().getSelectedItems()) {
+                TacheController.deleteTache(item);
+                this.table.getItems().remove(item);
+            }
+            this.table.refresh();
+            //Main.changeScene("ViewListe", new ViewListe(this.liste, this.utilisateur), "Vôtre liste est avancée :)");
+        } else {
+            ListeController.deleteListe(this.liste, this.utilisateur);
+            utilisateur.getListes().remove(this.liste);
+            Main.changeScene("MineListes", new MineListes(this.utilisateur), "D'ici vous pouvez accéder à toutes vos listes ;)");
+        }
     }
+    @FXML void edit(ActionEvent event) {
+        if (this.listeInfo.isVisible()){
+            Main.changeScene("EditTache", new EditTache(this.utilisateur, this.liste, this.table.getSelectionModel().getSelectedItem()), "Modifie ta tâche :)");
+        } else {
+            Main.changeScene("EditListe", new  EditListe(utilisateur, liste), "Modifie ta liste :)");
+        }
+    }
+    @FXML void switchAddTache(ActionEvent event) {Main.changeScene("EditTache", new EditTache(this.utilisateur, this.liste), "Créez vôtre tâche :)");}
+    @FXML void switchAccueil(MouseEvent event) {Main.changeScene("Accueil", new Accueil(this.utilisateur), "Bienvenue dans ToutDouxList-FX");}
+    @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
+    @FXML void switchEditProfil(ActionEvent event) {Main.changeScene("EditProfil", new EditProfil(this.utilisateur, true), "Modifions nôtre profil !!");}
+    @FXML void switchMineListes(ActionEvent event) {Main.changeScene("MineListes", new MineListes(this.utilisateur), "D'ici vous pouvez accéder à toutes vos listes ;)");}
+    @FXML void switchMineTypes(ActionEvent event) {Main.changeScene("MineTypes", new MineTypes(this.utilisateur), "Modifiez vos différents types de listes ;)");}
+
 }

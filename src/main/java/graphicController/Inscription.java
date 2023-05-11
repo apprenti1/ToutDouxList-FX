@@ -14,12 +14,15 @@ import services.bdd.Format;
 import java.util.ArrayList;
 
 public class Inscription {
+
     @FXML private TextField conf;
     @FXML private TextField email;
     @FXML private Text erreur;
     @FXML private TextField mdp;
     @FXML private TextField nom;
     @FXML private TextField prenom;
+
+
 
     @FXML void switchAccueil(MouseEvent event) {Main.changeScene("Accueil", new Accueil(), "Bienvenue dans ToutDouxList-FX");}
     @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
@@ -34,6 +37,4 @@ public class Inscription {
             erreur.setVisible(true);
 
     }
-
-
 }

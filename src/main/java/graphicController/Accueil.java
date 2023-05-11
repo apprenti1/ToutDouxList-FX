@@ -17,6 +17,8 @@ public class Accueil {
     @FXML private Button mineTypes;
     private Utilisateur utilisateur;
 
+
+
     public Accueil(Utilisateur utilisateur){this.utilisateur = utilisateur;}
     public Accueil(){this(null);}
     public void initialize(){

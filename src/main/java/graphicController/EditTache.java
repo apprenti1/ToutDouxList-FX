@@ -19,6 +19,7 @@ import services.bdd.Format;
 import java.util.ArrayList;
 
 public class EditTache {
+
     private Utilisateur utilisateur;
     private Liste liste;
     private Tache tache;
@@ -30,6 +31,7 @@ public class EditTache {
     @FXML private Label typeview;
     @FXML private Button modifier;
     private Type item;
+
 
 
     public EditTache(Utilisateur utilisateur, Liste liste, Tache tache) {
@@ -100,5 +102,5 @@ public class EditTache {
     @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
     @FXML void switchEditProfil(ActionEvent event) {Main.changeScene("EditProfil", new EditProfil(this.utilisateur, true), "Modifions nôtre profil !!");}
     @FXML void switchMineListes(ActionEvent event) {Main.changeScene("MineListes", new MineListes(this.utilisateur), "D'ici vous pouvez accéder à toutes vos listes ;)");}
-    @FXML void switchMineTypes(ActionEvent event) {}
+    @FXML void switchMineTypes(ActionEvent event) {Main.changeScene("MineTypes", new MineTypes(this.utilisateur), "Modifiez vos différents types de listes ;)");}
 }

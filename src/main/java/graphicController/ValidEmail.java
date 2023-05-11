@@ -21,15 +21,17 @@ import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 public class ValidEmail {
+
     @FXML private TextField code;
     @FXML private Text email;
     @FXML private Text erreur;
-
     private Utilisateur utilisateur;
     private boolean resetMdp;
     private String codeValid;
     private int essai;
     private String emailUtilisateur;
+
+
 
     public ValidEmail(Utilisateur utilisateur, boolean resetMdp) {
         this.utilisateur = utilisateur;
@@ -58,9 +60,6 @@ public class ValidEmail {
             }
         }
     }
-
-    @FXML void switchAccueil(MouseEvent event) {Main.changeScene("Accueil", new Accueil(), "Bienvenue dans ToutDouxList-FX");}
-    @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
     @FXML void valid(ActionEvent event) {
         if (this.code.getText().equals(this.codeValid) && !this.codeValid.equals("emailIncorrect")){
             if (this.resetMdp){
@@ -78,4 +77,6 @@ public class ValidEmail {
             this.essai --;
         }
     }
+    @FXML void switchAccueil(MouseEvent event) {Main.changeScene("Accueil", new Accueil(), "Bienvenue dans ToutDouxList-FX");}
+    @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
 }

@@ -13,6 +13,7 @@ import model.utilisateur.Utilisateur;
 import services.bdd.Format;
 
 public class EditListe {
+
     private final Utilisateur utilisateur;
     private final Liste liste;
     @FXML private TextField description;
@@ -57,5 +58,5 @@ public class EditListe {
     @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
     @FXML void switchEditProfil(ActionEvent event) {Main.changeScene("EditProfil", new EditProfil(this.utilisateur, true), "Modifions nôtre profil !!");}
     @FXML void switchMineListes(ActionEvent event) {Main.changeScene("MineListes", new MineListes(this.utilisateur), "D'ici vous pouvez accéder à toutes vos listes ;)");}
-    @FXML void switchMineTypes(ActionEvent event) {}
+    @FXML void switchMineTypes(ActionEvent event) {Main.changeScene("MineTypes", new MineTypes(this.utilisateur), "Modifiez vos différents types de listes ;)");}
 }

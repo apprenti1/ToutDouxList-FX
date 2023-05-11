@@ -21,6 +21,8 @@ public class EditProfil {
     private Utilisateur utilisateur;
     private boolean connected;
 
+
+
     public EditProfil(Utilisateur utilisateur, boolean connected){
         this.utilisateur = utilisateur;
         this.connected = connected;
@@ -52,7 +54,6 @@ public class EditProfil {
     @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
     @FXML void switchEditProfil(ActionEvent event) {Main.changeScene("EditProfil", new EditProfil(this.utilisateur, true), "Modifions nôtre profil !!");}
     @FXML void switchMineListes(ActionEvent event) {Main.changeScene("MineListes", new MineListes(this.utilisateur), "D'ici vous pouvez accéder à toutes vos listes ;)");}
-    @FXML void switchMineTypes(ActionEvent event) {}
+    @FXML void switchMineTypes(ActionEvent event) {Main.changeScene("MineTypes", new MineTypes(this.utilisateur), "Modifiez vos différents types de listes ;)");}
 
-    //todo bar buttons
 }

@@ -1,0 +1,7 @@
+#connexion:hover {
+    -fx-background-color: #3df05b;
+    //-fx-background-color: #3D4FF0;
+}
+button:focused {
+    -fx-background-color: #5060F2;
+}

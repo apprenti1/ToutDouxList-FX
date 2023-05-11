@@ -20,6 +20,8 @@ public class Connexion {
     @FXML private Text erreur;
     private Boolean inscrit;
 
+
+
     public Connexion(){this(null);}
     public Connexion(Boolean inscrit){this.inscrit = inscrit;}
     public void initialize(){
@@ -50,9 +52,6 @@ public class Connexion {
             erreur.setFill(Color.web("#940000"));
             erreur.setText("Erreur, veuillez indiquer vôtre e-mail");
             erreur.setVisible(true);
-        } else {
-            Main.changeScene("ValidEmail", new ValidEmail(this.email.getText(), true), "");
-        }
+        } else {Main.changeScene("ValidEmail", new ValidEmail(this.email.getText(), true), "");}
     }
-
 }
