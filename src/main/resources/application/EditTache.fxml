@@ -56,10 +56,6 @@
         </Pane>
         <VBox alignment="CENTER" fillWidth="false" layoutX="300.0" layoutY="60.0" prefHeight="340.0" prefWidth="300.0">
             <children>
-            <Text fx:id="erreur" fill="#940000" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur :" visible="false" wrappingWidth="220.0">
-               <font>
-                  <Font name="Calibri Bold" size="21.0" />
-               </font></Text>
             <TextField fx:id="titre" prefHeight="35.0" prefWidth="196.0" promptText="Titre" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #0000FF transparent; -fx-border-width: 2px; -fx-padding: 15px 10px 0px 10px;">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -86,7 +82,7 @@
                   <Font name="Calibri" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="type" onAction="#typeSelected" prefWidth="196.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #0000FF transparent; -fx-border-width: 2px; -fx-padding: 15px 10px 0px 10px;" />
+            <ComboBox fx:id="type" maxHeight="1.7976931348623157E308" onAction="#typeSelected" prefWidth="196.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent #0000FF transparent; -fx-border-width: 2px; -fx-padding: 15px 10px 0px 10px;" />
             <Label onMouseClicked="#switchAccueil" prefHeight="24.0" prefWidth="175.0" text="Type" textFill="#979797">
                <font>
                   <Font name="Calibri" size="18.0" />
@@ -100,7 +96,7 @@
             </Button>
             </children>
         </VBox>
-      <ToolBar layoutX="353.0" layoutY="250.0" maxWidth="163.0" prefHeight="28.0" prefWidth="163.0" style="-fx-background-color: transparent;">
+      <ToolBar layoutX="353.0" layoutY="239.0" maxWidth="163.0" mouseTransparent="true" prefHeight="28.0" prefWidth="163.0" style="-fx-background-color: #F2F5FC;">
          <items>
             <Label fx:id="typeview" text="type" />
             <Pane fx:id="color" prefHeight="20.0" prefWidth="20.0" />
@@ -108,6 +104,10 @@
       </ToolBar>
       <VBox alignment="CENTER" fillWidth="false" layoutY="60.0" prefHeight="340.0" prefWidth="300.0">
          <children>
+            <Text fx:id="erreur" fill="#940000" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur :" visible="false" wrappingWidth="220.0">
+               <font>
+                  <Font name="Calibri Bold" size="21.0" />
+               </font></Text>
             <ImageView fitHeight="285.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/hero-img.png%20edit.png" />

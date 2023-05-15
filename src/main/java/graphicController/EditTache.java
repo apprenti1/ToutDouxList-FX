@@ -71,6 +71,7 @@ public class EditTache {
         }
     }
     @FXML void modification(ActionEvent event) {
+        this.typeSelected(event);
         if (Format.verif(new String[]{this.titre.getText(), this.description.getText()})) {
             if (this.tache != null) {
                 this.tache.setNom(this.titre.getText());
@@ -84,19 +85,20 @@ public class EditTache {
                 Main.changeScene("ViewListe", new ViewListe(this.liste, this.utilisateur), "Vôtre liste est avancée :)");
             }
         } else {
+            this.erreur.setVisible(true);
             this.erreur.setText("Erreur, les charactères suivants sont interdits: \n '\"' | \"'\" | ' ' | '(' | ')'");
         }
     }
     @FXML void typeSelected(ActionEvent event) {
-        Type item = null;
-        for (Type tipe : this.utilisateur.getTypes()) {
-            if (tipe.getId() == Integer.parseInt(((ToolBar) event.getSource()).getId())){
-                item = tipe;
-                this.item = item;
+        System.out.println("type choisit ");
+        for (Type type : this.utilisateur.getTypes()) {
+            System.out.println(type.getId());
+            if (type.getId() == Integer.parseInt(this.type.getSelectionModel().getSelectedItem().getId())){
+                this.item = type;
             }
         }
-        this.color.setStyle("-fx-border-color: #"+item.getCode_couleur()+"; -fx-border-radius: 50%; -fx-border-width: 10px");
-        this.typeview.setText(item.getLibelle());
+        this.color.setStyle("-fx-border-color: #"+this.item.getCode_couleur()+"; -fx-border-radius: 50%; -fx-border-width: 10px");
+        this.typeview.setText(this.item.getLibelle());
     }
     @FXML void switchAccueil(MouseEvent event) {Main.changeScene("Accueil", new Accueil(this.utilisateur), "Bienvenue dans ToutDouxList-FX");}
     @FXML void switchConnexion(ActionEvent event) {Main.changeScene("Connexion", new Connexion(), "Connectez vous ;)");}
